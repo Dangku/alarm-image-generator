@@ -35,6 +35,7 @@ pacman-key --populate archlinuxarm
 # Add custom repo for some extra packages
 #
 alarm_install_package archlinuxdroid-repo
+alarm_install_package dangku-repo
 
 #
 # Sync pacman databases

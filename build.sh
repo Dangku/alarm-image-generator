@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# make odroid images
+# make bananapi images
 #
 
 # Check if required dependencies are met.
@@ -99,7 +99,7 @@ alarm_set_platform() {
                     NAME="ArchLinuxARM-odroid-${arg}-latest"
                 fi
                 if [ "${IMAGE}" = "" ]; then
-                    IMAGE="ArchLinuxARM-odroid-${arg}"
+                    IMAGE="ArchLinuxARM-bananapi-${arg}"
                 fi
                 if [ "${IMAGE_SIZE}" = "" ]; then
                     IMAGE_SIZE=6
@@ -398,7 +398,7 @@ sudo mount -v -t vfat ${LOOP}p1 root/boot
 # BUILD PACKAGES
 #
 if [ ! -e "packages" ]; then
-    git clone https://github.com/archdroid-org/pkgbuilds packages
+    git clone https://github.com/Dangku/pkgbuilds packages
 else
     # Perform some cleaning
     cd packages
@@ -411,7 +411,7 @@ fi
 
 alarm_build_package yay-bin
 alarm_build_package archlinuxdroid-repo
-
+alarm_build_package dangku-repo
 
 #
 # PRE CHROOT HOOKS
